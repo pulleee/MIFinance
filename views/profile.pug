@@ -1,0 +1,33 @@
+extends layout.pug
+
+block title
+    title Profile 
+
+block content 
+    - var credit = parseFloat(user.credit).toFixed(2);
+    - var name = user.name;
+    form.w-50.mx-auto(action="profile/updatePassword" method="post")
+        h1 Profile
+        div.form-group
+            label(for="inputUsername") Nutzername
+            input.form-control(type="text", id="inputUsername", placeholder="Nutzername", name="username" value=name readonly)
+        div.form-group
+            label(for="inputPassword") Passwort
+            input.form-control(type="password", id="inputPassword" placeholder="Passwort", name="password")
+            input.form-control.mt-2(type="password", id="inputConfirmation" placeholder="Passwort wiederholen", name="confirmation")
+        div.form-group
+            button.btn.btn-primary(type="submit") Aktualisieren
+
+    form.w-50.mx-auto(action="profile/updateCredit" method="post")
+        h2 Credit
+        div.form-group
+            label(for="inputCredit") Derzeitiger User-Credit $        
+            input.form-control(type="number", id="inputCredit" value=credit readonly) 
+        div.form-group
+            label(for="inputDeposit") Einzahlung
+            input.form-control(type="number", id="inputDeposit", min="0", step="0.01", max="10000", name="deposit")
+        div.form-group
+            button.btn.btn-primary(type="submit") Einzahlen
+
+    if update_error
+        div.alert.alert-danger(role="alert") #{update_error}

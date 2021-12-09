@@ -1,0 +1,22 @@
+extends layout.pug
+
+block title
+    title History
+
+block content 
+    table.table.table-striped
+        thead
+            tr
+            th(scope='col') Tickersymbol
+            th(scope='col') Name
+            th(scope='col') Anzahl Aktien
+            th(scope='col') Preis
+            th(scope='col') Datum
+        tbody
+            each action in transactions
+                tr
+                    th(scope='row') #{action.symbol}
+                    td #{action.name}
+                    td #{action.amount}
+                    td #{action.price}
+                    td #{action.buy_date}

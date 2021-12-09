@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    block title
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css")
+    link(rel="stylesheet", type="text/css", href="/css/main.css")
+
+  body
+    div.container
+      nav.navbar.navbar-expand.bg-light.navbar-light
+        a.navbar-brand(href='/')    
+          span.brand_blue M
+          span.brand_yellow I 
+          span.brand_red Finance
+        div.collapse.navbar-collapse
+          if user
+            ul.navbar-nav.mr-auto
+              li.nav-item
+                a.nav-link(href='/quote') Kursabfrage
+              li.nav-item
+                a.nav-link(href='/buy') Kaufen
+              li.nav-item
+                a.nav-link(href='/sell') Verkaufen
+              li.nav-item
+                a.nav-link(href='/history') History
+              li.nav-item
+                a.nav-link(href='/logout') Logout
+            ul.navbar-nav
+              li.nav-item
+                a.nav-link.font-weight-bold(href='/profile') #{user.name}
+          else
+            ul.navbar-nav.mr-auto
+              li.nav-item
+                a.nav-link(href='/login') Login
+              li.nav-item
+                a.nav-link(href='/register') Register
+  
+      block content

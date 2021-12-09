@@ -1,0 +1,21 @@
+extends layout.pug
+
+block title
+    title Verkaufen
+
+block content 
+    form.w-25.mx-auto(action="sell" method="post") 
+        div.form-group
+            label(for="inputStockTicker") Tickersymbol:
+            select.form-control(id="inputStockTicker", placeholder="Ticker Symbol", name="symbol")
+                each share in shares
+                    var symbol = #{share.symbol};
+                    option(value=symbol) #{share.symbol}
+        div.form-group
+            label(for="inputStockTicker") Anzahl Aktien:
+            input.form-control(type="number", id="inputStockTicker", min="1", step="1", placeholder="Anzahl Aktien", name="shares")
+        div.form-group
+            button.btn.btn-primary(type="submit") Aktie verkaufen
+
+        if transaction_successful
+            div.alert.alert-success(role="alert") #{transaction_successful}

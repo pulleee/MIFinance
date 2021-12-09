@@ -1,0 +1,36 @@
+extends layout.pug
+
+block title
+    title MI Finance
+
+block content 
+    table.table.table-striped
+        thead
+            tr
+            th(scope='col') Tickersymbol
+            th(scope='col') Name
+            th(scope='col') Anzahl Aktien
+            th(scope='col') Preis
+            th(scope='col') Gesamt
+        tbody
+            each action in transactions
+                tr
+                    th(scope='row') #{action.symbol}
+                    td #{action.name}
+                    td #{action.totalamount}
+                    td #{action.price}
+                    td #{action.totalPrice}
+            tr
+                th(scope='row') CASH 
+                td 
+                td
+                td
+                td #{credit}
+            tr
+                th(scope='row') 
+                td 
+                td
+                td
+                td #{totalValue}
+
+

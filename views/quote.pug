@@ -1,0 +1,16 @@
+extends layout.pug
+
+block title
+    title Kursabfrage
+
+block content 
+    form.w-25.mx-auto(action="quote" method="post") 
+        div.form-group
+            label(for="inputStockTicker") Tickersymbol:
+            input.form-control(type="text", id="inputStockTicker", placeholder="Ticker Symbol", name="symbol")
+        div.form-group
+            button.btn.btn-primary(type="submit") Kurs abfragen
+
+        if result
+            div.alert.alert-dark(role="alert") #{result}
+        

@@ -1,0 +1,16 @@
+CREATE TABLE mifinance_users (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR UNIQUE NOT NULL,
+	password VARCHAR NOT NULL,
+	credit DECIMAL NOT NULL DEFAULT 10000
+);
+
+CREATE TABLE mifinance_transactions(
+	id SERIAL PRIMARY KEY,
+	name VARCHAR NOT NULL,
+	symbol VARCHAR NOT NULL,
+	amount INTEGER NOT NULL,
+	price DECIMAL NOT NULL,
+	buy_date TIMESTAMP NOT NULL,
+	user_id INTEGER REFERENCES mifinance_users
+);

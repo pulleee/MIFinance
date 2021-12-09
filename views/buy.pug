@@ -1,0 +1,18 @@
+extends layout.pug
+
+block title
+    title Kaufen
+
+block content 
+    form.w-25.mx-auto(action="buy" method="post") 
+        div.form-group
+            label(for="inputStockTicker") Tickersymbol:
+            input.form-control(type="text", id="inputStockTicker", placeholder="Ticker Symbol", name="symbol")
+        div.form-group
+            label(for="inputShares") Anzahl Aktien:
+            input.form-control(type="number", id="inputShares", min="1", step="1", placeholder="Anzahl Aktien", name="shares")
+        div.form-group
+            button.btn.btn-primary(type="submit") Aktie kaufen
+            
+        if transaction_successful
+            div.alert.alert-success(role="alert") #{transaction_successful}

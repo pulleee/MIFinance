@@ -1,0 +1,20 @@
+extends layout.pug
+
+block title
+    title Register 
+
+block content 
+    form.w-50.mx-auto(action="register" method="post")
+        h1 Registrieren
+        div.form-group
+            label(for="inputUsername") Nutzername
+            input.form-control(type="text", id="inputUsername", placeholder="Nutzername", name="username")
+        div.form-group
+            label(for="inputPassword") Passwort
+            input.form-control(type="password", id="inputPassword" placeholder="Passwort", name="password")
+            input.form-control.mt-2(type="password", id="inputConfirmation" placeholder="Passwort wiederholen", name="confirmation")
+        div.form-group
+            button.btn.btn-primary(type="submit") Registrieren
+ 
+        if register_error
+            div.alert.alert-danger(role="alert") #{register_error}

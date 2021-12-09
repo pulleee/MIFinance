@@ -1,2 +1,4 @@
 # MIFinance
-A simple, simulated Stock Trading Site
+A simple, simulated, server based Stock Trading Site
+
+NodeJS Server Backend, PUG Template Engine Frontend and a PosgresSQL Database
